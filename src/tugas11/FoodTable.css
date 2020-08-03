@@ -1,0 +1,14 @@
+table{
+    border: 1px solid black;
+    margin:50px;
+    width: 800px;
+
+}
+th{
+    background-color: lightgrey;
+}
+td{
+    background-color: lightsalmon;
+    text-align: "left";
+    
+}
