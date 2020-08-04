@@ -4,7 +4,7 @@ class Title extends Component{
     render(){
         return (
             <>
-             <h1 style={{textAlign:"center", width:"800px",margin:"50px"}}>{this.props.title}</h1>
+             <h1 style={{textAlign:"center", width:"600px",margin:"0 auto", marginTop:"50px",marginBottom:"50px"}}>{this.props.title}</h1>
             </>
         )
     }
