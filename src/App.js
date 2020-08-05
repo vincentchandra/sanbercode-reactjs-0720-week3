@@ -3,12 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 import FoodTable from "./tugas11/FoodTable"
 import Timer from "./tugas12/Timer"
+import FoodTableNew from "./tugas13/FoodTableNew"
 
 function App() {
   return (
     <>
-      <FoodTable />
-      <Timer start={101} />
+      {/* <FoodTable/> */}
+      <FoodTableNew />
+      {/* <Timer start={101} /> */}
     </>
   );
 } 

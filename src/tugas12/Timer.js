@@ -9,7 +9,6 @@ class Timer extends Component{
 
         }
     }
-    
     componentDidMount(){
         if(this.props.start !== undefined){
             let d = new Date();
@@ -45,12 +44,8 @@ class Timer extends Component{
                         <h1 style={{float:"left"}}>sekarang jam: {this.state.jam}</h1>
                         <h1 style={{float:"right"}}>hitung mundur: {this.state.time}</h1>
                     </div>
-                    
-
-                )
-                    
-                } 
-               
+                )  
+                }    
             </>
         )
     }
