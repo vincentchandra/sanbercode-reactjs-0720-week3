@@ -4,13 +4,15 @@ import './App.css';
 import FoodTable from "./tugas11/FoodTable"
 import Timer from "./tugas12/Timer"
 import FoodTableNew from "./tugas13/FoodTableNew"
+import FoodTableHook from "./tugas14/FoodTableHook"
 
 function App() {
   return (
     <>
       {/* <FoodTable/> */}
-      <FoodTableNew />
-      {/* <Timer start={101} /> */}
+      {/* <FoodTableNew /> */}
+      <FoodTableHook />
+      <Timer start={101} />
     </>
   );
 } 
