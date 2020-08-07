@@ -9,13 +9,12 @@ const Title = ()=> {
     )
 }
 
-const FoodTableNew = () => {
+const FoodTableHook = () => {
     
     const [daftarBuah, setDaftarBuah] = useState(null)
     const [inputNama, setInputNama] = useState("")
     const [inputHarga, setInputHarga] = useState("")
     const [inputBerat, setInputBerat] = useState(0)
-    const [indexOfForm, setIndexOfForm] = useState(-1)
     const [selectedId, setSelectedId]  =  useState(0)
     const [statusForm, setStatusForm]  =  useState("create")
     useEffect( () => {
@@ -148,4 +147,4 @@ const FoodTableNew = () => {
     
 }
 
-export default FoodTableNew;
+export default FoodTableHook;

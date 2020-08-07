@@ -1,18 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import FoodTable from "./tugas11/FoodTable"
-import Timer from "./tugas12/Timer"
-import FoodTableNew from "./tugas13/FoodTableNew"
-import FoodTableHook from "./tugas14/FoodTableHook"
+import {BrowserRouter as Router} from "react-router-dom"
+import Routes from './tugas15/Routes'
 
 function App() {
   return (
     <>
       {/* <FoodTable/> */}
       {/* <FoodTableNew /> */}
-      <FoodTableHook />
-      <Timer start={101} />
+      {/* <FoodTableHook /> */}
+      {/* <FoodTableContext /> */}
+      {/* <FoodTableApp/> */}
+      {/* <Timer start={101} /> */}
+      <Router>
+       <Routes/>
+
+      </Router>
     </>
   );
 } 
