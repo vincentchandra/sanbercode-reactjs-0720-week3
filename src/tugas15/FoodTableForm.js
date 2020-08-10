@@ -1,6 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react'
 import {FoodTableContext} from './FoodTableContext'
-import {FoodIdContext} from './FoodIdContext'
 import axios from 'axios'
 
 const FoodTableForm = () => {
@@ -10,22 +9,22 @@ const FoodTableForm = () => {
     const [inputNama, setInputNama] = useState("")
     const [inputHarga, setInputHarga] = useState("")
     const [inputBerat, setInputBerat] = useState(0)
-    let [selectedId, setSelectedId]  =  useContext(FoodIdContext)
+    // let [selectedId, setSelectedId]  =  useContext(FoodIdContext)
     const [statusForm, setStatusForm]  =  useState("create")
     const [tempId, setTempId] = useState(-2)
 
     useEffect(() => {
-        if(selectedId==-1){
+        if(daftarBuah.selectedId==-1){
             return;
         }
-        if(selectedId!=-1){
-            let buah = daftarBuah.find(x => x.id === selectedId)
+        if(daftarBuah.selectedId!=-1){
+            let buah = daftarBuah.list.find(x => x.id === daftarBuah.selectedId)
             setInputNama(buah.nama)
             setInputHarga(buah.harga)
             setInputBerat(buah.berat)
             setStatusForm("edit")
-            setTempId(selectedId)
-            setSelectedId(-1)
+            setTempId(daftarBuah.selectedId)
+            setDaftarBuah({...daftarBuah,selectedId:-1})
         }
     })
 
@@ -38,16 +37,16 @@ const FoodTableForm = () => {
             if(statusForm === "create"){
                 axios.post(`http://backendexample.sanbercloud.com/api/fruits`,{name,price,weight})
                 .then(res => {
-                    setDaftarBuah([...daftarBuah, {id: res.data.id, nama: name, harga: price, berat: weight}])
+                    setDaftarBuah({...daftarBuah,list:[...daftarBuah.list, {id: res.data.id, nama: name, harga: price, berat: weight}]})
                 })
             } else if(statusForm === "edit"){
                 axios.put(`http://backendexample.sanbercloud.com/api/fruits/${tempId}`,{name,price,weight})
                 .then(res=>{
-                    let dataBuah = daftarBuah.find(el => el.id === tempId)
+                    let dataBuah = daftarBuah.list.find(el => el.id === tempId)
                     dataBuah.nama = name
                     dataBuah.berat = weight
                     dataBuah.harga = price
-                    setDaftarBuah([...daftarBuah])
+                    setDaftarBuah({...daftarBuah,list:[...daftarBuah.list]})
                 })
             }
             setInputNama("")

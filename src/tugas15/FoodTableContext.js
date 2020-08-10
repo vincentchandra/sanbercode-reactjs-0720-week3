@@ -5,14 +5,17 @@ import axios from 'axios';
 export const FoodTableContext = createContext()
 
 export const FoodTableProvider = props => {
-    const [daftarBuah, setDaftarBuah] = useState(null)
+    const [daftarBuah, setDaftarBuah] = useState({
+        list:null,
+        selectedId:-1
+    })
     useEffect( () => {
-        if(daftarBuah === null ){
+        if(daftarBuah.list === null ){
             axios.get(`http://backendexample.sanbercloud.com/api/fruits`)
             .then(res => {
-                setDaftarBuah(res.data.map(el => {
+                setDaftarBuah({...daftarBuah,list:res.data.map(el => {
                     return {id:el.id, nama: el.name, harga:el.price, berat: el.weight}
-                }))
+                })})
             })
         }
     },[daftarBuah])

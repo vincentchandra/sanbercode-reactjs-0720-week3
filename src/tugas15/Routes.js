@@ -44,9 +44,7 @@ const Routes = () =>{
             <Route path='/tugas14'>
                 <FoodTableHook />
             </Route>
-            <Route path = '/'>
-                <FoodTableApp/>
-            </Route>
+            <Route path = '/' component={FoodTableApp}/>
         </Switch>
         </>
     )
